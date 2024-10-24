@@ -3,7 +3,7 @@
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0.html).
 
 {
-    'name': 'the documents',
+    'name': 'my document manager',
     'summary': 'Aplicación para la gestión de documentos, carpetas y revisiones.',
     'author': 'Sergio Martinez Meneses',
     'company': 'Quetzalcode',
