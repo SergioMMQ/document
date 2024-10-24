@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista de lista para revisiones de documentos -->
+    <record id="documentos_revisiones_view_tree" model="ir.ui.view">
+        <field name="name">documentos.revisiones.view.tree</field>
+        <field name="model">documentos.revisiones</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" string="Nombre"/>
+                <field name="rev" string="Revisión"/>
+                <field name="state" string="Estado"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de formulario para revisiones de documentos -->
+    <record id="documentos_revisiones_view_form" model="ir.ui.view">
+        <field name="name">documentos.revisiones.view.form</field>
+        <field name="model">documentos.revisiones</field>
+        <field name="arch" type="xml">
+            <form string="Revisión de Documentos">
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" string="Nombre" required="1"/>
+                            <field name="file" string="Archivo"/>
+                        </group>
+                        <group>
+                            <field name="rev" string="Número de Revisión"/>
+                            <field name="date" string="Fecha"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" string="Seguidores"/>
+                    <field name="activity_ids" widget="mail_activity" string="Actividades"/>
+                    <field name="message_ids" widget="mail_thread" string="Mensajes"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción para abrir la vista de revisiones -->
+    <record id="act_documentos_revisiones" model="ir.actions.act_window">
+        <field name="name">Revisiones</field>
+        <field name="res_model">documentos.revisiones</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="documentos_revisiones_view_tree"/>
+    </record>
+</odoo>
